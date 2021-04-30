@@ -2,21 +2,24 @@ var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 const fetch = require('node-fetch');
-
+// Cors for cross origin allowance
+const cors = require('cors');
 
 const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express()
-// const bodyParser = require('body-parser')
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
-app.use(express.urlencoded({
-  extended: true
-}));
-app.use(express.json());
-// Cors for cross origin allowance
-const cors = require('cors');
+var bodyParser = require('body-parser')
+app.use(bodyParser.json()) // to use json
+// to use url encoded values
+app.use(bodyParser.urlencoded({
+extended: true
+}))
+// app.use(express.urlencoded({
+//   extended: true
+// }));
+// app.use(express.json());
+
 app.use(cors());
 app.use(express.static('dist'))
 console.log(__dirname)
