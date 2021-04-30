@@ -1,6 +1,6 @@
 function handleSubmit(event) {
     event.preventDefault()
-    let formText = document.getElementById('name').innerText;
+    let formText = document.getElementById('name').value;
      // check what text was put into the form field
     if(client.checkForName(formText)) {
         const postData = async (url = "", data = {}) => {
@@ -10,7 +10,7 @@ function handleSubmit(event) {
                 credentials: 'same-origin',
                 mode: 'cors',
                 headers: {
-                'Content-Type': 'multipart/form-data',
+                'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(data),
             });
