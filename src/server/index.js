@@ -8,7 +8,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const app = express()
-const bodyParser = require('body-parser')
+// const bodyParser = require('body-parser')
 // app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(bodyParser.json());
 app.use(express.urlencoded({
@@ -29,12 +29,12 @@ app.get('/', function (req, res) {
     // res.sendFile(path.resolve('src/client/views/index.html'))
 })
 
-
 // app.get('/test', function (req, res) {
 //     res.send(mockAPIResponse)
 // })
 app.post('/api', async function(req, res) {
-    console.log('request body:', req.body.txt);
+    console.log('request body:', req.body);
+    // console.log('request body:', req.body.txt);
     let userInput = 'Main dishes were quite good, but desserts were too sweet for me.'
     const apiURL = `${baseURL}key=${application_key}&txt=${userInput}&lang=en`
     const response = await fetch(apiURL)
