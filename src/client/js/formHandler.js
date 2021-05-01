@@ -23,11 +23,11 @@ function handleSubmit(event) {
         };
         postData('http://localhost:8081/api', {txt: formText})
         .then(function(newData) {
-            document.getElementById('results').innerHTML = `Agreement: ${newData.agreement}
-            <br> Polarity:${ polarity[newData.score_tag].toUpperCase()}
-            <br> Subjectivity:${ newData.subjectivity }
-            <br> Confidence:${ newData.confidence }
-            <br> Irony:${ newData.irony }`;
+            document.getElementById('results').innerHTML = `<p>Agreement: ${newData.agreement}</p>
+            <br> <p>Polarity:${ polarity[newData.score_tag].toUpperCase()}</p>
+            <br> <p>Subjectivity:${ newData.subjectivity }</p>
+            <br> <p>Confidence:${ newData.confidence }</p>
+            <br> <p>Irony:${ newData.irony }</p>`;
         })
     }else{
         alert('invalid text')
